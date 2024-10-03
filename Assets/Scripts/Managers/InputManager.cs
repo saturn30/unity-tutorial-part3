@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager
 {
@@ -9,6 +10,10 @@ public class InputManager
 
     public void OnUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         // 키보드 입력이 있는 경우
         if (Input.anyKey && KeyAction != null)
         {

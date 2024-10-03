@@ -4,13 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _speed = 3f;
     Vector3 _destPos;
-
-    float wait_run_ratio = 0f;
     Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        Managers.Resource.Inistantiate("UI/UI_Button");
 
         // InputManager 이벤트 핸들러 등록
         Managers.Input.KeyAction -= OnKeyboard;
@@ -95,14 +95,10 @@ public class PlayerController : MonoBehaviour
             transform.position += dir.normalized * moveDist;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
         }
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10f * Time.deltaTime);
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        anim.SetFloat("speed", _speed);
     }
     void UpdateIdle()
     {
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 0, 10f * Time.deltaTime);
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        anim.SetFloat("speed", 0);
     }
 }
