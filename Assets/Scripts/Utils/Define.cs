@@ -9,4 +9,10 @@ public class Define
     {
         Press, Click
     }
+    public enum UIEvent
+    {
+        Click,
+        Drag,
+
+    }
 }
