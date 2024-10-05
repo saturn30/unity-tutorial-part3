@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
     enum Texts
     {
@@ -28,8 +28,9 @@ public class UI_Button : UI_Base
     }
     int _score = 0;
 
-    private void Start()
+    public override void Init()
     {
+        base.Init();
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));
@@ -37,10 +38,15 @@ public class UI_Button : UI_Base
 
         GetText((int)Texts.ScoreText).text = "Blind Test";
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go, (data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+        // GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        // AddUIEvent(go, (data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
 
         GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClick);
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     void OnButtonClick(PointerEventData data)

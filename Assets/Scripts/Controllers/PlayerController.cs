@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
+
+        Managers.UI.ShowPopupUI<UI_Button>();
+
         // InputManager 이벤트 핸들러 등록
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;

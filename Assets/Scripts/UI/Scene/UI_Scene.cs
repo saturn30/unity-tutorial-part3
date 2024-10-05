@@ -1,16 +1,7 @@
-using UnityEngine;
-
-public class UI_Scene : MonoBehaviour
+public class UI_Scene : UI_Base
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  public virtual void Init()
+  {
+    Managers.UI.SetCanvas(gameObject, false);
+  }
 }
