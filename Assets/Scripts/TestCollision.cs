@@ -22,7 +22,7 @@ public class TestCollision : MonoBehaviour
             LayerMask mask = LayerMask.GetMask("Monster") | LayerMask.GetMask("Wall");
             if (Physics.Raycast(ray, out hit, 100f, mask))
             {
-                Debug.Log($"Raycase camera : {hit.collider.gameObject.name}");
+                // Debug.Log($"Raycase camera : {hit.collider.gameObject.name}");
             }
         }
     }

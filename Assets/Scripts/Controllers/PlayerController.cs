@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Managers.UI.ShowPopupUI<UI_Button>();
-        Managers.UI.ShowSceneUI<UI_Inven>();
+        // Managers.UI.ShowSceneUI<UI_Inven>();
 
         // InputManager 이벤트 핸들러 등록
         Managers.Input.KeyAction -= OnKeyboard;

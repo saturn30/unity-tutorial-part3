@@ -14,6 +14,9 @@ public class Managers : MonoBehaviour
     UIManager _ui = new UIManager();
     public static UIManager UI { get { return Instance._ui; } }
 
+    SceneManagerEx _scene = new SceneManagerEx();
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
+
     void Start()
     {
         init();
