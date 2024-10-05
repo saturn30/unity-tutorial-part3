@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Base : MonoBehaviour
+public abstract class UI_Base : MonoBehaviour
 {
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+
+    public abstract void Init();
 
     protected void Bind<T>(Type type) where T : UnityEngine.Object
     {
@@ -25,7 +27,7 @@ public class UI_Base : MonoBehaviour
             {
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true);
             }
-            if (objects[i] == null) Debug.Log("Failed to bind!");
+            if (objects[i] == null) Debug.Log($"Failed to bind! : {names[i]}");
         }
     }
 

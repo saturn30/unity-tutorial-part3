@@ -34,7 +34,7 @@ public class UI_Button : UI_Popup
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));
-        Bind<Image>(typeof(Images));
+        // Bind<Image>(typeof(Images));
 
         GetText((int)Texts.ScoreText).text = "Blind Test";
 
