@@ -105,4 +105,10 @@ public class UIManager
     }
     return go.GetOrAddComponent<T>();
   }
+
+  public void Clear()
+  {
+    CloseAllPopupUI();
+    _sceneUI = null;
+  }
 }

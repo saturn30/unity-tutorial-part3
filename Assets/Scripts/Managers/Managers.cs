@@ -17,6 +17,9 @@ public class Managers : MonoBehaviour
     SceneManagerEx _scene = new SceneManagerEx();
     public static SceneManagerEx Scene { get { return Instance._scene; } }
 
+    SoundManager _sound = new SoundManager();
+    public static SoundManager Sound { get { return Instance._sound; } }
+
     void Start()
     {
         init();
@@ -39,6 +42,15 @@ public class Managers : MonoBehaviour
             }
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+            s_instance._sound.Init();
         }
+    }
+
+    public static void Clear()
+    {
+        Sound.Clear();
+        Input.Clear();
+        Scene.Clear();
+        UI.Clear();
     }
 }
