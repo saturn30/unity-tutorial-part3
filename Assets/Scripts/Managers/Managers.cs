@@ -20,6 +20,9 @@ public class Managers : MonoBehaviour
     SoundManager _sound = new SoundManager();
     public static SoundManager Sound { get { return Instance._sound; } }
 
+    PoolManager _pool = new PoolManager();
+    public static PoolManager Pool { get { return Instance._pool; } }
+
     void Start()
     {
         init();
@@ -43,6 +46,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
             s_instance._sound.Init();
+            s_instance._pool.Init();
         }
     }
 
@@ -52,5 +56,7 @@ public class Managers : MonoBehaviour
         Input.Clear();
         Scene.Clear();
         UI.Clear();
+        // 풀이 제일 마지막에. 위에 애들이 오브젝트 쓰고있을 수 있음.
+        Pool.Clear();
     }
 }

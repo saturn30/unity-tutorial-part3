@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
-    protected BaseScene CurrentScene => GameObject.FindFirstObjectByType<BaseScene>();
+    public BaseScene CurrentScene => Object.FindFirstObjectByType<BaseScene>();
 
     public void LoadScene(Define.Scene type)
     {
